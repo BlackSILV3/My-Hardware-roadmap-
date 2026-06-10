@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Sources -- VLSI Roadmap v3</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --ink: #0a0e1a;
+  --ink2: #141929;
+  --surface: #f4f1eb;
+  --accent: #e8440a;
+  --gold: #c9860a;
+  --teal: #0a7a6e;
+  --muted: #6b7280;
+  --border: #d4cfc5;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:var(--surface); color:var(--ink); line-height:1.6; }
+
+.header { background:var(--ink); color:var(--surface); padding:40px 60px; text-align:center; border-bottom:3px solid var(--accent); }
+.header-chip { font-family:'Space Mono',monospace; font-size:11px; letter-spacing:4px; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
+.header h1 { font-family:'Syne',sans-serif; font-size:clamp(28px,5vw,48px); font-weight:800; margin-bottom:8px; }
+.header p { font-size:14px; color:#8899cc; max-width:600px; margin:0 auto; line-height:1.7; }
+.back-btn { display:inline-flex; align-items:center; gap:8px; color:var(--ink); background:var(--gold); font-family:'Space Mono',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; text-decoration:none; margin-top:20px; padding:10px 20px; transition:background 0.2s, color 0.2s; font-weight:700; }
+.back-btn:hover { background:var(--accent); color:white; }
+
+.content { padding:48px 60px; max-width:1100px; margin:0 auto; }
+.section-eyebrow { font-family:'Space Mono',monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+.section-h2 { font-family:'Syne',sans-serif; font-size:clamp(20px,3vw,30px); font-weight:800; margin-bottom:14px; line-height:1.2; }
+
+.foundry-img { width:100%; max-width:900px; margin:24px auto; display:block; border:1px solid var(--border); border-radius:4px; }
+
+.source-table { width:100%; border-collapse:collapse; margin-top:24px; font-size:13px; }
+.source-table th { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; padding:12px 14px; background:var(--ink); color:var(--surface); text-align:left; font-weight:400; }
+.source-table td { padding:12px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+.source-table tr:hover td { background:rgba(0,0,0,0.02); }
+.td-num { font-family:'Space Mono',monospace; font-size:11px; color:var(--accent); white-space:nowrap; }
+.td-stage { font-family:'Space Mono',monospace; font-size:10px; color:var(--muted); white-space:nowrap; }
+
+.download-link { display:inline-block; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:1px; text-transform:uppercase; padding:4px 12px; background:var(--teal); color:white; text-decoration:none; border-radius:2px; transition:background 0.2s; }
+.download-link:hover { background:#065f46; }
+.download-link.placeholder { background:var(--muted); }
+.download-link.placeholder:hover { background:#4b5563; }
+
+.note-box { border-left:3px solid var(--gold); background:rgba(201,134,10,0.06); padding:16px 20px; margin:24px 0; font-size:13px; line-height:1.65; }
+.note-box strong { color:var(--gold); }
+
+.placeholder-section { border:2px dashed var(--border); padding:32px; text-align:center; margin:24px 0; }
+.placeholder-section h4 { font-family:'Syne',sans-serif; font-size:14px; color:var(--muted); margin-bottom:8px; }
+.placeholder-section p { font-size:13px; color:var(--muted); }
+
+.footer { background:var(--ink); color:#4a5568; padding:32px 60px; text-align:center; margin-top:48px; }
+.footer p { font-family:'Space Mono',monospace; font-size:11px; letter-spacing:1px; }
+.footer strong { color:var(--accent); }
+
+@media(max-width:720px) {
+  .content { padding-left:24px; padding-right:24px; }
+  .header { padding-left:24px; padding-right:24px; }
+  .source-table { font-size:12px; }
+  .source-table th, .source-table td { padding:8px; }
+}
+
+.float-back {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  text-decoration: none;
+  z-index: 998;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+.float-back:hover { background: var(--accent); color: white; }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-chip">BlackSILV3 &middot; Emmanuel Oscar Paul</div>
+  <h1>Download Sources</h1>
+  <p>All textbooks, video courses, tools, and resources referenced in the VLSI Design &amp; Embedded Systems Roadmap v3. Replace placeholder links with your actual download sources.</p>
+  <a href="VLSI_Roadmap_FINAL.html" class="back-btn" onclick="try{window.location.href='VLSI_Roadmap_FINAL.html'}catch(e){}">
+    ← Back to Main Roadmap
+  </a>
+</div>
+
+<div class="content">
+
+  <!-- === FOUNDRY COSTS === -->
+  <div class="section-eyebrow">Industry Reality</div>
+  <h2 class="section-h2">Semiconductor Foundry Costs</h2>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Understanding the economics of chip fabrication is essential for realistic career and business planning. Your starting point is the free Google OpenMPW shuttle program.</p>
+  <img src="foundry_costs.png" alt="Semiconductor Foundry Construction Costs" class="foundry-img">
+  <div class="note-box">
+    <strong>Your path:</strong> Start with free OpenMPW tape-outs using open-source tools (OpenROAD, Magic VLSI, Skywater 130nm PDK). Build a portfolio of working chip designs. Target fabless company roles at Qualcomm, NVIDIA, Intel. A physical foundry requires billions in capital -- but a fabless chip design company requires skills, a laptop, and an efabless account.
+  </div>
+
+  <!-- === TEXTBOOKS === -->
+  <div class="section-eyebrow" style="margin-top:48px;">Textbooks</div>
+  <h2 class="section-h2">All Textbooks with Download Links</h2>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Click the download button to access each resource. Replace placeholder links with your own sources (Library Genesis, Z-Library, publisher websites, university libraries).</p>
+
+  <table class="source-table">
+    <thead><tr><th>#</th><th>Stage</th><th>Title</th><th>Author</th><th>Link</th></tr></thead>
+    <tbody>
+      <tr><td class="td-num">00-A</td><td class="td-stage">S0</td><td>Pro Git (Free)</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Chacon &amp; Straub</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">00-B</td><td class="td-stage">S0</td><td>The Linux Command Line (Free)</td><td style="font-size:12px;color:var(--muted);font-style:italic;">William Shotts</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">01</td><td class="td-stage">S1</td><td>Fundamentals of Electric Circuits</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Alexander &amp; Sadiku</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">02</td><td class="td-stage">S2</td><td>Semiconductor Device Fundamentals</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Robert F. Pierret</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">03</td><td class="td-stage">S3</td><td>Signals &amp; Systems</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Oppenheim &amp; Willsky</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">04</td><td class="td-stage">S4</td><td>Microelectronic Circuits</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Sedra &amp; Smith</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">05</td><td class="td-stage">S5</td><td>The C Programming Language (K&amp;R)</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Kernighan &amp; Ritchie</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">06</td><td class="td-stage">S5B</td><td>Algorithms (Free PDF)</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Dasgupta, Papadimitriou, Vazirani</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">07</td><td class="td-stage">S5B</td><td>Data Structures and Algorithm Analysis in C</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Mark Allen Weiss</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">08</td><td class="td-stage">S5C</td><td>Automate the Boring Stuff with Python (Free)</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Al Sweigart</td><td><a href="https://automatetheboringstuff.com" class="download-link" target="_blank">Open Website</a></td></tr>
+      <tr><td class="td-num">09</td><td class="td-stage">S5D</td><td>Tcl/Tk: A Developer's Guide</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Clif Flynt</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">10</td><td class="td-stage">S5D</td><td>Practical Programming in Tcl and Tk</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Welch &amp; Jones</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">11</td><td class="td-stage">S6</td><td>Digital Design and Computer Architecture: ARM</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Harris &amp; Harris</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">12</td><td class="td-stage">S6</td><td>SystemVerilog Assertions and Functional Coverage</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Ashok B. Mehta</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">13</td><td class="td-stage">S7</td><td>ARM Cortex-M for Beginners (Free)</td><td style="font-size:12px;color:var(--muted);font-style:italic;">ARM Ltd.</td><td><a href="https://developer.arm.com" class="download-link" target="_blank">Open Website</a></td></tr>
+      <tr><td class="td-num">14</td><td class="td-stage">S7</td><td>Embedded Systems: ARM Cortex-M</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Jonathan W. Valvano</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">15</td><td class="td-stage">S8</td><td>Making Embedded Systems</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Elecia White</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">16</td><td class="td-stage">S8</td><td>Operating Systems: Three Easy Pieces (Free)</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Arpaci-Dusseau</td><td><a href="http://pages.cs.wisc.edu/~remzi/OSTEP/" class="download-link" target="_blank">Open Website</a></td></tr>
+      <tr><td class="td-num">17</td><td class="td-stage">S8B</td><td>Mastering Embedded Linux Programming</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Vasquez &amp; Simmonds</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">18</td><td class="td-stage">S9</td><td>Signal and Power Integrity Simplified</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Eric Bogatin</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">19</td><td class="td-stage">S10</td><td>Analog Integrated Circuit Design</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Carusone, Johns, Martin</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">20</td><td class="td-stage">S10</td><td>Analysis and Design of Analog Integrated Circuits</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Gray, Hurst &amp; Lewis</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">21</td><td class="td-stage">S10.5</td><td>Analog-to-Digital Conversion</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Marcel Pelgrom</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">22</td><td class="td-stage">S10.5</td><td>Design of Analog CMOS Integrated Circuits</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Behzad Razavi</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">23</td><td class="td-stage">S11A</td><td>FPGA Prototyping by Verilog Examples</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Pong P. Chu</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">24</td><td class="td-stage">S11A</td><td>SystemVerilog for Design</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Sutherland et al.</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">25</td><td class="td-stage">S11A</td><td>Digital Design and Computer Architecture: RISC-V</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Harris &amp; Harris</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">26</td><td class="td-stage">S11B</td><td>CMOS VLSI Design</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Weste &amp; Harris</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">27</td><td class="td-stage">S11B</td><td>Static Timing Analysis for Nanometer Designs</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Bhasker &amp; Chadha</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">28</td><td class="td-stage">S11B</td><td>The UVM Primer</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Ray Salemi</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">29</td><td class="td-stage">S11B</td><td>Low Power Methodology Manual (Free PDF)</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Keating et al.</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">30</td><td class="td-stage">S12</td><td>Computer Architecture: A Quantitative Approach</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Hennessy &amp; Patterson</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">31</td><td class="td-stage">S12</td><td>The RISC-V Reader (Free PDF)</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Patterson &amp; Waterman</td><td><a href="https://riscv.org/book-download/" class="download-link" target="_blank">Open Website</a></td></tr>
+      <tr><td class="td-num">32</td><td class="td-stage">S12</td><td>Digital Design and Computer Architecture: RISC-V</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Harris &amp; Harris</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-num">33</td><td class="td-stage">S13</td><td>Memory Systems: Cache, DRAM, Disk</td><td style="font-size:12px;color:var(--muted);font-style:italic;">Jacob, Ng &amp; Wang</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+    </tbody>
+  </table>
+
+  <!-- === VIDEO SOURCES === -->
+  <div class="section-eyebrow" style="margin-top:48px;">Video Courses</div>
+  <h2 class="section-h2">All Video Sources with Links</h2>
+
+  <table class="source-table">
+    <thead><tr><th>Stage</th><th>Video Source</th><th>Platform</th><th>Link</th></tr></thead>
+    <tbody>
+      <tr><td class="td-stage">S0</td><td>GitHub Learning Lab -- Git Tutorials</td><td style="font-size:12px;color:var(--muted);">lab.github.com</td><td><a href="https://lab.github.com" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-stage">S0</td><td>freeCodeCamp -- Git &amp; GitHub (2 hours)</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S0</td><td>Joe Collins -- Linux Tutorial</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S1</td><td>Neso Academy -- Electric Circuits</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S2</td><td>NPTEL -- Semiconductor Devices</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S3</td><td>MIT 6.003 -- Signals &amp; Systems (Freeman)</td><td style="font-size:12px;color:var(--muted);">MIT OCW</td><td><a href="https://ocw.mit.edu/courses/6-003-signals-and-systems-fall-2011/" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-stage">S3</td><td>MIT RES.6.007 -- Signals &amp; Systems (Oppenheim)</td><td style="font-size:12px;color:var(--muted);">MIT OCW</td><td><a href="https://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-stage">S3</td><td>MIT 6.041 -- Probabilistic Systems Analysis</td><td style="font-size:12px;color:var(--muted);">MIT OCW</td><td><a href="https://ocw.mit.edu/courses/6-041-probabilistic-systems-analysis-and-applied-probability-fall-2010/" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-stage">S4</td><td>Behzad Razavi -- Analog IC Design (Berkeley)</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S5B</td><td>MIT 6.006 -- Introduction to Algorithms</td><td style="font-size:12px;color:var(--muted);">MIT OCW</td><td><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-stage">S5B</td><td>NeetCode -- DSA in C</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S5C</td><td>Python for Everybody -- Dr. Chuck</td><td style="font-size:12px;color:var(--muted);">YouTube/Coursera</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S5D</td><td>Tcl Developer Xchange -- Official Tutorial</td><td style="font-size:12px;color:var(--muted);">tcl.tk</td><td><a href="https://www.tcl.tk/man/tcl8.5/tutorial/tcltutorial.html" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-stage">S5D</td><td>Xilinx Vivado Tcl Console Tutorial</td><td style="font-size:12px;color:var(--muted);">xilinx.com</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S6</td><td>Neso Academy -- Digital Electronics</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S6</td><td>Ben Eater -- Building an 8-bit Computer</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S6</td><td>MIT 6.004 -- Computation Structures</td><td style="font-size:12px;color:var(--muted);">MIT OCW</td><td><a href="https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-stage">S6</td><td>SymbiYosys -- Formal Verification Tutorial</td><td style="font-size:12px;color:var(--muted);">yosyshq.net</td><td><a href="https://yosyshq.readthedocs.io/projects/sby/en/latest/" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-stage">S7</td><td>Fastbit Embedded -- STM32 Register-Level</td><td style="font-size:12px;color:var(--muted);">Udemy</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S7</td><td>Controllerstech -- STM32 Peripherals</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S7</td><td>Bruce Land -- Cornell ECE 4760</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S8</td><td>FreeRTOS -- Official Documentation</td><td style="font-size:12px;color:var(--muted);">freertos.org</td><td><a href="https://www.freertos.org/Documentation/RTOS_book.html" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-stage">S8B</td><td>Bootlin -- Embedded Linux Training</td><td style="font-size:12px;color:var(--muted);">bootlin.com</td><td><a href="https://bootlin.com/training/" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-stage">S8B</td><td>NPTEL -- Linux Kernel Programming</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S9</td><td>Phil's Lab -- PCB Design &amp; KiCad</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S10</td><td>Behzad Razavi -- Analog IC Design (Deep)</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S10.5</td><td>Behzad Razavi -- Data Converter Design</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S10.5</td><td>MIT 6.003 -- Sampling &amp; Quantization</td><td style="font-size:12px;color:var(--muted);">MIT OCW</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S11A</td><td>ZipCPU -- Timing Closure &amp; Formal</td><td style="font-size:12px;color:var(--muted);">zipcpu.com</td><td><a href="https://zipcpu.com/" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-stage">S11A</td><td>MIT 6.175 -- RISC-V CPU Core</td><td style="font-size:12px;color:var(--muted);">MIT OCW</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S11B</td><td>NPTEL -- VLSI Physical Design</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S11B</td><td>OpenROAD -- Tutorial Series</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S12</td><td>Onur Mutlu -- ETH Zurich Comp Arch</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S12</td><td>Berkeley CS61C -- RISC-V</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+      <tr><td class="td-stage">S13</td><td>Onur Mutlu -- Advanced Computer Architecture</td><td style="font-size:12px;color:var(--muted);">YouTube</td><td><a href="#" class="download-link placeholder">Add Link</a></td></tr>
+    </tbody>
+  </table>
+
+  <!-- === TOOLS === -->
+  <div class="section-eyebrow" style="margin-top:48px;">Tools</div>
+  <h2 class="section-h2">All Tools with Download Links</h2>
+
+  <table class="source-table">
+    <thead><tr><th>Tool</th><th>Purpose</th><th>Cost</th><th>Download</th></tr></thead>
+    <tbody>
+      <tr><td class="td-num">Git</td><td>Version control</td><td class="td-stage">FREE</td><td><a href="https://git-scm.com/downloads" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">GitHub</td><td>Code hosting</td><td class="td-stage">FREE</td><td><a href="https://github.com/signup" class="download-link" target="_blank">Sign Up</a></td></tr>
+      <tr><td class="td-num">VS Code</td><td>Code editor</td><td class="td-stage">FREE</td><td><a href="https://code.visualstudio.com/download" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">LTspice</td><td>Circuit simulation</td><td class="td-stage">FREE</td><td><a href="https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">Falstad Circuit</td><td>Browser circuit sim</td><td class="td-stage">FREE</td><td><a href="https://www.falstad.com/circuit/" class="download-link" target="_blank">Open</a></td></tr>
+      <tr><td class="td-num">GCC</td><td>C/C++ compiler</td><td class="td-stage">FREE</td><td><a href="https://gcc.gnu.org/install/binaries.html" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">Valgrind</td><td>Memory debugging</td><td class="td-stage">FREE</td><td><a href="https://valgrind.org/downloads/" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">Python 3</td><td>Scripting</td><td class="td-stage">FREE</td><td><a href="https://www.python.org/downloads/" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">Icarus Verilog</td><td>Verilog simulation</td><td class="td-stage">FREE</td><td><a href="https://steveicarus.github.io/iverilog/" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">GTKWave</td><td>Waveform viewer</td><td class="td-stage">FREE</td><td><a href="https://gtkwave.sourceforge.net/" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">Logisim-Evolution</td><td>Logic simulator</td><td class="td-stage">FREE</td><td><a href="https://github.com/logisim-evolution/logisim-evolution/releases" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">SymbiYosys</td><td>Formal verification</td><td class="td-stage">FREE</td><td><a href="https://yosyshq.readthedocs.io/projects/sby/en/latest/" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">STM32CubeIDE</td><td>Embedded IDE</td><td class="td-stage">FREE</td><td><a href="https://www.st.com/en/development-tools/stm32cubeide.html" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">OpenOCD</td><td>On-chip debugger</td><td class="td-stage">FREE</td><td><a href="https://openocd.org/pages/getting-openocd.html" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">KiCad</td><td>PCB design</td><td class="td-stage">FREE</td><td><a href="https://www.kicad.org/download/" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">Xilinx Vivado</td><td>FPGA design suite</td><td class="td-stage">FREE</td><td><a href="https://www.xilinx.com/support/download.html" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">Magic VLSI</td><td>Layout + DRC/LVS</td><td class="td-stage">FREE</td><td><a href="http://opencircuitdesign.com/magic/" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">OpenROAD</td><td>RTL-to-GDS flow</td><td class="td-stage">FREE</td><td><a href="https://github.com/The-OpenROAD-Project/OpenROAD" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">Yosys</td><td>RTL synthesis</td><td class="td-stage">FREE</td><td><a href="https://yosyshq.net/yosys/download.html" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">OpenSTA</td><td>Timing analysis</td><td class="td-stage">FREE</td><td><a href="https://github.com/The-OpenROAD-Project/OpenSTA" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">Skywater PDK</td><td>130nm process kit</td><td class="td-stage">FREE</td><td><a href="https://skywater-pdk.readthedocs.io/" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">Verilator</td><td>Fast RTL simulator</td><td class="td-stage">FREE</td><td><a href="https://veripool.org/guide/latest/install.html" class="download-link" target="_blank">Download</a></td></tr>
+      <tr><td class="td-num">Google OpenMPW</td><td>Free chip fabrication</td><td class="td-stage">FREE</td><td><a href="https://developers.google.com/silicon" class="download-link" target="_blank">Apply</a></td></tr>
+      <tr><td class="td-num">Efabless</td><td>Open chip platform</td><td class="td-stage">FREE</td><td><a href="https://efabless.com/" class="download-link" target="_blank">Sign Up</a></td></tr>
+    </tbody>
+  </table>
+
+  <!-- === PLACEHOLDER SECTIONS === -->
+  <div class="section-eyebrow" style="margin-top:48px;">Additional Resources</div>
+  <h2 class="section-h2">Placeholder Sections -- Add Your Own Links</h2>
+
+  <div class="placeholder-section">
+    <h4>📎 Research Papers &amp; Whitepapers</h4>
+    <p>Add links to IEEE papers, conference proceedings, and industry whitepapers here.<br>Example: RISC-V spec, ARM architecture reference manuals, TSMC technology briefs.</p>
+    <!-- ADD YOUR LINKS BELOW -->
+    <!-- <a href="YOUR_LINK" target="_blank">Paper Title</a> -->
+  </div>
+
+  <div class="placeholder-section">
+    <h4>📎 Online Courses &amp; Certifications</h4>
+    <p>Add links to Coursera, edX, Udemy, or vendor certification courses here.<br>Example: Coursera VLSI courses, Cadence/Synopsys training portals.</p>
+    <!-- ADD YOUR LINKS BELOW -->
+    <!-- <a href="YOUR_LINK" target="_blank">Course Title</a> -->
+  </div>
+
+  <div class="placeholder-section">
+    <h4>📎 Community &amp; Forums</h4>
+    <p>Add links to Slack workspaces, Discord servers, Reddit communities, and forums here.<br>Example: Skywater PDK Slack, Efabless Discord, r/chipdesign.</p>
+    <!-- ADD YOUR LINKS BELOW -->
+    <!-- <a href="YOUR_LINK" target="_blank">Community Name</a> -->
+  </div>
+
+  <div class="placeholder-section">
+    <h4>📎 Personal Notes &amp; Cheat Sheets</h4>
+    <p>Add links to your own study notes, cheat sheets, and reference documents here.<br>These can be hosted on Google Drive, Notion, or your GitHub repository.</p>
+    <!-- ADD YOUR LINKS BELOW -->
+    <!-- <a href="YOUR_LINK" target="_blank">Your Notes</a> -->
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>
+    <strong>VLSI Design &amp; Embedded Systems -- Download Sources Page</strong><br>
+    v3 Roadmap &middot; 33 Textbooks &middot; 35+ Video Sources &middot; 25+ Tools<br>
+    <a href="VLSI_Roadmap_FINAL.html" style="color:var(--gold);text-decoration:none;">← Back to Main Roadmap</a>
+  </p>
+</div>
+
+
+<!-- Floating back to roadmap button -->
+<a href="VLSI_Roadmap_FINAL.html" class="float-back" title="Back to Main Roadmap">← Roadmap</a>
+
+</body>
+</html>
